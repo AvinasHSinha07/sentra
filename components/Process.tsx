@@ -1,74 +1,99 @@
 import React from 'react';
-import { Search, MessageSquare, BookOpen, Star } from 'lucide-react';
+import { Search, MessageSquare, Calendar, Rocket, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
-    id: 1,
+    id: "01",
     icon: Search,
-    title: "Browse & Search",
-    desc: "Explore services using categories, keywords, filters to find what you're looking for.",
-    color: "bg-blue-600",
-    iconColor: "text-white"
+    title: "Browse Experts",
+    desc: "Filter 500+ mentors by university, major, or budget.",
+    color: "bg-blue-100 text-blue-600",
   },
   {
-    id: 2,
+    id: "02",
     icon: MessageSquare,
-    title: "Get in Touch",
-    desc: "Reach out to your preferred counselors to discuss your study plans directly.",
-    color: "bg-teal-500",
-    iconColor: "text-white"
+    title: "Chat for Free",
+    desc: "Send a message to discuss your goals before booking.",
+    color: "bg-purple-100 text-purple-600",
   },
   {
-    id: 3,
-    icon: BookOpen,
-    title: "Place Your Order",
-    desc: "Choose a Gig package or request a custom offer before providing your requirements.",
-    color: "bg-orange-500",
-    iconColor: "text-white"
+    id: "03",
+    icon: Calendar,
+    title: "Book Session",
+    desc: "Secure your 1-on-1 video call or essay review slot.",
+    color: "bg-orange-100 text-orange-600",
   },
   {
-    id: 4,
-    icon: Star,
-    title: "Review & Approve",
-    desc: "Receive the delivery and share your feedback with the community.",
-    color: "bg-green-600",
-    iconColor: "text-white"
+    id: "04",
+    icon: Rocket,
+    title: "Get Results",
+    desc: "Receive personalized feedback and submit with confidence.",
+    color: "bg-green-100 text-green-600",
   }
 ];
 
 const Process: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">4 Simple Steps to Your Success</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Find a counselor you like with the experience you need. Here's how to get started:
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-sans">
+            How Sentra Works
+          </h2>
+          <p className="text-lg text-slate-500">
+            Simple, transparent, and built for your success. Start your journey in minutes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step) => (
-            <div key={step.id} className={`${step.color} rounded-2xl p-6 text-white relative overflow-hidden group hover:scale-105 transition-transform duration-300 shadow-xl`}>
-              <div className="absolute top-0 right-0 p-32 bg-white opacity-5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+        {/* Steps Grid */}
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-slate-200 via-slate-200 to-slate-200 -z-10"></div>
+
+          {steps.map((step, index) => (
+            <div key={step.id} className="relative group">
               
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-6 backdrop-blur-sm">
-                  {step.id}
+              {/* Icon Container */}
+              <div className="flex justify-center mb-8">
+                <div className={`w-24 h-24 rounded-[2rem] ${step.color} flex items-center justify-center text-3xl shadow-lg shadow-slate-100 border-4 border-white relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <step.icon size={36} />
+                  
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-navy-900 rounded-full flex items-center justify-center text-white text-xs font-bold border-4 border-white">
+                    {step.id}
+                  </div>
                 </div>
-                
-                <div className="mb-4">
-                  <step.icon size={36} className="text-white opacity-90" />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed">
+              </div>
+
+              {/* Text Content */}
+              <div className="text-center px-4">
+                <h3 className="text-xl font-bold text-navy-900 mb-3 group-hover:text-primary-600 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-slate-500 leading-relaxed text-sm">
                   {step.desc}
                 </p>
+              </div>
+
+              {/* Mobile Arrow */}
+              <div className="lg:hidden flex justify-center mt-8 text-slate-300">
+                {index !== steps.length - 1 && <ArrowRight className="rotate-90" />}
               </div>
             </div>
           ))}
         </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <button className="bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold py-4 px-8 rounded-xl transition-colors inline-flex items-center gap-2">
+            View All Counselors
+            <ArrowRight size={18} />
+          </button>
+        </div>
+
       </div>
     </section>
   );

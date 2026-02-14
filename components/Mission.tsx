@@ -1,37 +1,62 @@
 import React from 'react';
-import { Users } from 'lucide-react';
+import { Users, Heart, Target } from 'lucide-react';
 
 const Mission: React.FC = () => {
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden relative bg-gradient-to-br from-blue-600 to-indigo-700 shadow-2xl">
-        {/* Abstract Shapes */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative z-10 px-6 py-20 md:px-20 md:py-24 text-center text-white">
-          <div className="inline-flex justify-center items-center w-16 h-16 bg-white/10 rounded-2xl backdrop-blur-sm mb-8 border border-white/20">
-            <Users size={32} className="text-white" />
+    <section className="py-24 px-4 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative rounded-[3rem] overflow-hidden min-h-[600px] flex items-center">
+          
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <img 
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=2000" 
+              alt="University Campus" 
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-primary-900/90 to-primary-900/60 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 tracking-tight">The Mission Behind Sentra</h2>
+          <div className="relative z-10 px-6 py-20 md:px-16 w-full max-w-4xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-8 text-white">
+               <Heart size={14} className="fill-white" />
+               <span className="text-xs font-bold tracking-widest uppercase">Our Core Mission</span>
+            </div>
 
-          <div className="max-w-4xl mx-auto space-y-6 text-blue-50 text-lg md:text-xl font-light leading-relaxed">
-            <p>
-              In schools across the globe, dedicated counselors wake up every morning with one mission: to help students discover their potential and navigate the path to their dreams.
-            </p>
-            <p className="font-normal text-white">
-              But their impact was limited by geography. Until now.
-            </p>
-            <p>
-              Sentra exists to break down those walls. We've created a space where experienced school counselors can extend their reach, sharing their hard-earned wisdom with students who need it most—regardless of where they live.
-            </p>
-            <div className="pt-8">
-              <span className="inline-block border-t border-white/30 pt-8 font-semibold tracking-wide uppercase text-sm">
-                Democratizing access to world-class guidance
-              </span>
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight font-sans leading-tight">
+              Democratizing Access to <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 to-primary-200">World-Class Guidance</span>
+            </h2>
+
+            <div className="space-y-6 text-primary-100 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+              <p>
+                Every student deserves a champion. In schools across the globe, dedicated counselors wake up every morning with one mission: to help students discover their potential.
+              </p>
+              <p className="font-medium text-white">
+                But geography shouldn't limit destiny.
+              </p>
+              <p>
+                Sentra exists to break down those walls. We connect students with the wisdom they need, regardless of where they live or what school they attend.
+              </p>
+            </div>
+
+            <div className="mt-12 flex flex-wrap gap-4">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex items-center gap-3">
+                <Users className="text-secondary-400" />
+                <div>
+                  <p className="text-2xl font-bold text-white">10k+</p>
+                  <p className="text-xs text-primary-200">Students Helped</p>
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex items-center gap-3">
+                <Target className="text-secondary-400" />
+                <div>
+                  <p className="text-2xl font-bold text-white">95%</p>
+                  <p className="text-xs text-primary-200">College Acceptance</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

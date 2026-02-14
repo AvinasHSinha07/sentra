@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sentra - Expert Student Guidance</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
             },
             colors: {
               primary: {
@@ -37,7 +38,14 @@
                 700: '#047857',
                 800: '#065f46',
                 900: '#064e3b',
+              },
+              navy: {
+                800: '#0f172a',
+                900: '#020617',
               }
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
             }
           }
         }
@@ -47,10 +55,20 @@
       body {
         font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
+        background-color: #F8FAFC;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
       .mesh-gradient {
-        background-color: #ffffff;
-        background-image: radial-gradient(at 0% 0%, hsla(219,65%,93%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(160,54%,95%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(219,65%,93%,1) 0, transparent 50%);
+        background-color: #f8fafc;
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(219,65%,93%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(160,54%,96%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 100%, hsla(219,65%,96%,1) 0, transparent 50%);
       }
     </style>
   <script type="importmap">
